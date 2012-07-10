@@ -76,7 +76,7 @@ window.TouchSliderBox=(function(){
 	
 	if(typeof window.TouchScroll == 'undefined'){
 		var s=document.createElement('script');
-		s.src="http://qiqiboy.sinaapp.com/touchscroll/touchScroll.js";
+		s.src="http://qiqiboy.googlecode.com/svn/trunk/touchscroll/touchScroll.js";
 		s.onload=s.onerror=s.onreadystatechange=function(){
 			if(s&&s.readyState&&s.readyState!='loaded'&&s.readyState!='complete'){
 				return;
