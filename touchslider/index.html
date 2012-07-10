@@ -1,0 +1,115 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>触摸测试demo</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
+<link href='style.css' rel='stylesheet'/><script type="text/javascript" src="touchslider.js"></script>
+</head>
+<body>
+
+<h1>TouchSlider</h1>
+
+<h2>150px wide {id:'slider', 'auto':'0', speed:600, timeout:3000, direction:'down'}</h2>
+
+<div id='slider' class='swipe' style='width:150px'>
+  <ul>
+    <li style='display:block'><div>1</div></li>
+    <li style='display:none'><div>2</div></li>
+    <li style='display:none'><div>3</div></li>
+    <li style='display:none'><div>4</div></li>
+    <li style='display:none'><div>5</div></li>
+  </ul>
+</div>
+
+
+<h2>250px wide {id:'slider2', direction:'right', auto:-1}</h2>
+
+<div id='slider2' class='swipe' style='width:250px'>
+  <ul>
+    <li class="a" style='display:block'><div>1</div></li>
+    <li class="a" style='display:none'><div>2</div></li>
+    <li class="a" style='display:none'><div>3</div></li>
+    <li class="a" style='display:none'><div>4</div></li>
+    <li class="a" style='display:none'><div>5</div></li>
+  </ul>
+</div>
+
+
+<h2>Full width {id:'slider3'}</h2>
+
+<div id='slider3' class='swipe' style="height:123px;">
+  <ul>
+    <li style='display:block'><div>1</div></li>
+    <li style='display:none'><div>2   <a href="http://www.qiqiboy.com" target="_blank">qiqiboy</a></div></li>
+    <li style='display:none'><div>3</div></li>
+    <li style='display:none'><div>4</div></li>
+    <li style='display:none'><div>5</div></li>
+  </ul>
+</div>
+
+<a href='#' onclick='t3.prev();return false;'>prev</a> 
+<a href='#' onclick='t3.next();return false;'>next</a>
+<br><br>
+
+
+<h2>image slider {id:'slider4', 'auto':'2', direction:'left', speed:400, timeout:3000, 'before':}</h2>
+
+<div id='slider4' class='swipe'>
+  <ul>
+    <li style='display:block'><a href="http://boy.im"><img src="imgs/1.jpg" alt="" /></a></li>
+    <li style='display:none'><img src="imgs/2.jpg" alt="" /></li>
+    <li style='display:none'><img src="imgs/3.jpg" alt="" /></li>
+    <li style='display:none'><img src="imgs/4.jpg" alt="" /></li>
+  </ul>
+</div>
+
+<a href='#' onclick='tt.prev();return false;'>prev</a> 
+<a href='#' onclick='tt.next();return false;'>next</a>
+<br/><br/>
+
+<div>页码实现方式一：
+	<a href="#" onclick="tt.slide(0);return false;"> 1 </a>
+	<a href="#" onclick="tt.slide(1);return false;"> 2 </a>
+	<a href="#" onclick="tt.slide(2);return false;"> 3 </a>
+	<a href="#" onclick="tt.slide(3);return false;"> 4 </a>
+</div>
+<br/><br/>
+<div id="pagenavi">页码实现方式二：
+	<a href="#" class="active">1</a>
+	<a href="#">2</a>
+	<a href="#">3</a>
+	<a href="#">4</a>
+</div>
+<br><br>
+<div id="copyright">Copyright 2011 <a href="http://www.qiqiboy.com">www.qiqiboy.com</a></div>
+
+
+<script type="text/javascript">
+console=window.console || {dir:new Function(),log:new Function()};
+var t1=new TouchSlider({id:'slider','auto':'0',speed:'600',timeout:3000,direction:'down',mouseWheel:true});
+var t2=new TouchSlider({id:'slider2',direction:'right',auto:-1,mouseWheel:true});
+var t0=new TouchSlider({id:'slider',direction:'down',mouseWheel:true});//重复定义，会抛出错误
+var t3=new TouchSlider({id:'slider3',mouseWheel:true});
+
+var as=document.getElementById('pagenavi').getElementsByTagName('a'),p=0;
+var tt=new TouchSlider({id:'slider4','auto':'2',fx:'ease-out',direction:'left',speed:600,timeout:5000,'before':function(index){
+	var as=document.getElementById('pagenavi').getElementsByTagName('a');
+	if(typeof p != 'undeinfed') as[p].className='';
+	as[index].className='active';
+	p=index;
+}});
+console.dir(tt); console.dir(tt.__proto__);
+for(var i=0;i<as.length;i++){
+	(function(){
+		var j=i;
+		as[j].onclick=function(){
+			tt.slide(j);
+			return false;
+		}
+	})();
+}
+</script>
+
+</body> 
+</html> 

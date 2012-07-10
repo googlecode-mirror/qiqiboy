@@ -1,0 +1,58 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, del, dfn, em, img, ins, kbd, q, samp, small, strong, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, footer, header, nav, section {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+.clear{
+	clear:both;	
+}
+body {
+  -webkit-text-size-adjust:none;
+  font-family:sans-serif;
+}
+h1 {
+  font-size:36px;
+  margin:15px;
+  text-align:center;
+  color:#666;
+}
+h2 {
+  font-size:14px;
+  font-weight:bold;
+  color:#3c3c3c;
+  margin:20px 10px 10px;
+}
+small {
+  margin:0 10px 30px;
+  display:block;
+  font-size:12px;
+}
+a {
+  margin:0;
+  font-size:12px;
+  color:#3c3c3c;
+}
+.myscroll{
+	max-height:220px;
+	overflow-y:auto;
+	border:1px solid #555;
+	margin:10px;
+	background:#eee;
+	padding:4px;
+	color:#333;
+}
+.imglist li{
+	min-width:80px;
+	float:left;
+	margin:0 30px 30px 0;
+}
+.imglist li img{
+	max-width:100%;	
+}
+td{
+	border:1px solid #000;	
+}

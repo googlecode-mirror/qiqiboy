@@ -1,0 +1,39 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>TouchSliderBox demo</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
+<link href='style.css' rel='stylesheet'/>
+<script type="text/javascript" src="../myJS/touchSliderBox.dev.js"></script>
+</head>
+<body>
+
+<h1>TouchSliderBox</h1>
+
+<div id="imgbox">
+    <ul>
+    	<li><a href="http://www.qiqiboy.com"><img src="img/1.jpg" /></a></li>
+        <li><img src="img/2.jpg" /></li>
+        <li><img src="img/3.jpg" /></li>
+        <li><img src="img/4.jpg" /></li>
+        <li><img src="img/5.jpg" /></li>
+        <li><img src="img/4.jpg" /></li>
+        <li><img src="img/2.jpg" /></li>
+        <li><img src="img/3.jpg" /></li>
+    </ul>
+    <div class="clear"></div>
+</div>
+<br/><br/>
+<a href="javascript:;" class="btn prev" onclick="t1.prev();">上一张</a>
+<a href="javascript:;" class="btn next" onclick="t1.next();">下一张</a>
+<br/><br/>
+<h2><a href="http://www.qiqiboy.com"><img src="http://www.qiqiboy.com/favicon.ico" />I'm qiqiboy !</a></h2>
+<br/><br/>
+<script type="text/javascript">
+console=window.console || {dir:new Function(),log:new Function()};
+var t1; TouchSliderBox('imgbox','t1');console.dir(t1)
+</script>
+
+</body> 
+</html> 
