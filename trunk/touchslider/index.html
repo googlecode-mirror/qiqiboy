@@ -2,31 +2,53 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>触摸测试demo</title>
+<title>TouchSlider</title>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/> 
-<link href='style.css' rel='stylesheet'/><script type="text/javascript" src="touchslider.js"></script>
+<link href='style.css' rel='stylesheet'/>
+<script type="text/javascript" src="http://qiqiboy.googlecode.com/svn/trunk/touchslider/touchslider.js"></script>
 </head>
 <body>
 
 <h1>TouchSlider</h1>
+<h2>默认参数说明
+<pre>
+_default: {
+    'id': 'slider', //string|elementNode 幻灯容器的id或者该节点对象
+    'begin': 0, //Number 默认从第几个幻灯开始播放，从0开始
+    'auto': true, //bool 是否自动播放
+    'speed':600, //Number 动画效果持续时间,单位是毫秒
+    'timeout':5000, //Number 幻灯播放间隔时间,单位毫秒
+    'direction':'left', //string left|right|up|down 播放方向,四个值可选
+    'fixWidth':true, //bool 默认会将每个幻灯宽度强制固定为容器的宽度,即每次只能看到一张幻灯；false的情况参见下方第一个例子
+    'mouseWheel':false, //bool 是否支持鼠标滚轮
+    'before':new Function(), //Function 幻灯切换前, before(newIndex, oldSlide)
+    'after':new Function() //Function 幻灯切换后, after(newIndex, newSlide)
+}
+</pre>
+<br/><br/>
+<font color="red">一些例子</font>：
+<br/>
+</h2>
 
-<h2>150px wide {id:'slider', 'auto':'0', speed:600, timeout:3000, direction:'down'}</h2>
+<h2>full-width 类型：容器宽度自适应，幻灯宽度不固定 <br/>
+调用方式：new TouchSlider('slider',{'auto':true, begin:1, speed:600, timeout:3000, direction:'down'})</h2>
 
-<div id='slider' class='swipe' style='width:150px'>
-  <ul>
+<div class='swipe' style='padding:10px;'>
+  <ul id='slider'>
     <li style='display:block'><div>1</div></li>
-    <li style='display:none'><div>2</div></li>
-    <li style='display:none'><div>3</div></li>
-    <li style='display:none'><div>4</div></li>
-    <li style='display:none'><div>5</div></li>
+    <li><div>2</div></li>
+    <li><div>3</div></li>
+    <li><div>4</div></li>
+    <li><div>5</div></li>
   </ul>
 </div>
 
 
-<h2>250px wide {id:'slider2', direction:'right', auto:-1}</h2>
+<h2>250px-width 类型：容器宽度250px，固定宽度幻灯，方向向下滚动 <br/>
+调用方式：new TouchSlider('slider2',{'auto':false, speed:600, timeout:3000, direction:'down', fixWidth:false})</h2>
 
-<div id='slider2' class='swipe' style='width:250px'>
-  <ul>
+<div class='swipe' style='height:145px;width:250px'>
+  <ul id='slider2'>
     <li class="a" style='display:block'><div>1</div></li>
     <li class="a" style='display:none'><div>2</div></li>
     <li class="a" style='display:none'><div>3</div></li>
@@ -36,15 +58,16 @@
 </div>
 
 
-<h2>Full width {id:'slider3'}</h2>
+<h2>Full-width 类型：容器宽度自适应，幻灯宽度固定<br/>
+调用方式：new TouchSlider('slider',{'auto':true, speed:600, timeout:3000, direction:'left', fixWidth:true})</h2>
 
-<div id='slider3' class='swipe' style="height:123px;">
-  <ul>
+<div class='swipe' style="height:123px;">
+  <ul id='slider3'>
     <li style='display:block'><div>1</div></li>
-    <li style='display:none'><div>2   <a href="http://www.qiqiboy.com" target="_blank">qiqiboy</a></div></li>
-    <li style='display:none'><div>3</div></li>
-    <li style='display:none'><div>4</div></li>
-    <li style='display:none'><div>5</div></li>
+    <li style='display:none;width:200px;'><div>2   <a href="http://www.qiqiboy.com" target="_blank">qiqiboy</a></div></li>
+    <li style='display:none;width:300px;'><div>3</div></li>
+    <li style='display:none;width:100px;'><div>4</div></li>
+    <li style='display:none;width:500px;'><div>5</div></li>
   </ul>
 </div>
 
@@ -53,26 +76,26 @@
 <br><br>
 
 
-<h2>image slider {id:'slider4', 'auto':'2', direction:'left', speed:400, timeout:3000, 'before':}</h2>
+<h2>image slider new TouchSlider('slider4',{'auto':true, speed:600, timeout:6000, direction:'right'})</h2>
 
-<div id='slider4' class='swipe'>
-  <ul>
+<div class='swipe'>
+  <ul id='slider4'>
     <li style='display:block'><a href="http://boy.im"><img src="imgs/1.jpg" alt="" /></a></li>
-    <li style='display:none'><img src="imgs/2.jpg" alt="" /></li>
-    <li style='display:none'><img src="imgs/3.jpg" alt="" /></li>
-    <li style='display:none'><img src="imgs/4.jpg" alt="" /></li>
+    <li><img src="imgs/2.jpg" alt="" /></li>
+    <li><img src="imgs/3.jpg" alt="" /></li>
+    <li><img src="imgs/4.jpg" alt="" /></li>
   </ul>
 </div>
 
-<a href='#' onclick='tt.prev();return false;'>prev</a> 
-<a href='#' onclick='tt.next();return false;'>next</a>
+<a href='#' onclick='t4.prev();return false;'>prev</a> 
+<a href='#' onclick='t4.next();return false;'>next</a>
 <br/><br/>
 
-<div>页码实现方式一：
-	<a href="#" onclick="tt.slide(0);return false;"> 1 </a>
-	<a href="#" onclick="tt.slide(1);return false;"> 2 </a>
-	<a href="#" onclick="tt.slide(2);return false;"> 3 </a>
-	<a href="#" onclick="tt.slide(3);return false;"> 4 </a>
+<div>页码实现方式一(未加状态标识)：
+	<a href="#" onclick="t4.slide(0);return false;"> 1 </a>
+	<a href="#" onclick="t4.slide(1);return false;"> 2 </a>
+	<a href="#" onclick="t4.slide(2);return false;"> 3 </a>
+	<a href="#" onclick="t4.slide(3);return false;"> 4 </a>
 </div>
 <br/><br/>
 <div id="pagenavi">页码实现方式二：
@@ -82,33 +105,31 @@
 	<a href="#">4</a>
 </div>
 <br><br>
-<div id="copyright">Copyright 2011 <a href="http://www.qiqiboy.com">www.qiqiboy.com</a></div>
+<div id="copyright">Copyright 2012 <a href="http://www.qiqiboy.com">www.qiqiboy.com</a></div>
 
 
 <script type="text/javascript">
 console=window.console || {dir:new Function(),log:new Function()};
-var t1=new TouchSlider({id:'slider','auto':'0',speed:'600',timeout:3000,direction:'down',mouseWheel:true});
-var t2=new TouchSlider({id:'slider2',direction:'right',auto:-1,mouseWheel:true});
-var t0=new TouchSlider({id:'slider',direction:'down',mouseWheel:true});//重复定义，会抛出错误
-var t3=new TouchSlider({id:'slider3',mouseWheel:true});
-
-var as=document.getElementById('pagenavi').getElementsByTagName('a'),p=0;
-var tt=new TouchSlider({id:'slider4','auto':'2',fx:'ease-out',direction:'left',speed:600,timeout:5000,'before':function(index){
-	var as=document.getElementById('pagenavi').getElementsByTagName('a');
-	if(typeof p != 'undeinfed') as[p].className='';
-	as[index].className='active';
-	p=index;
-}});
-console.dir(tt); console.dir(tt.__proto__);
+var active=0,
+	as=document.getElementById('pagenavi').getElementsByTagName('a');
 for(var i=0;i<as.length;i++){
 	(function(){
 		var j=i;
-		as[j].onclick=function(){
-			tt.slide(j);
+		as[i].onclick=function(){
+			t4.slide(j);
 			return false;
 		}
 	})();
 }
+var t1=new TouchSlider('slider',{'auto':true, begin:1, speed:600, timeout:3000, direction:'left', mouseWheel:true, fixWidth:false});
+var t2=new TouchSlider('slider2',{'auto':false, speed:600, timeout:3000, direction:'down', fixWidth:true});
+var t3=new TouchSlider('slider3',{'auto':true, speed:600, timeout:3000, direction:'left', fixWidth:true});
+var t4=new TouchSlider({id:'slider4','auto':true, speed:600, timeout:6000, direction:'right',before:function(index){
+		as[active].className='';
+		active=index;
+		as[active].className='active';
+	}});
+
 </script>
 
 </body> 

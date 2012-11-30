@@ -46,13 +46,12 @@ a {
   text-align:center;
 }
 .swipe li  img{
-	max-width:100%;
+	max-width:80%;
 }
 #slider li div{
 	margin:10px;
 }
 #slider4{
-	height:235px;
 	line-height:0;
 	text-align:center;
 }
@@ -74,4 +73,26 @@ a {
 #copyright a{
 	font-weight:bold;
 	font-size:16px;
+}
+
+#slider li{
+	width:300px;
+	float:left;
+}
+#slider li:first-child{
+	width:100px;
+	margin:0 40px;
+}
+#slider li:last-child{
+	width:500px;
+	border:3px solid #111;
+}
+#slider li:nth-child(2){
+	width:200px;
+}
+#slider li:nth-child(3){
+	width:300px;
+}
+#slider li:nth-child(4){
+	width:400px;
 }
