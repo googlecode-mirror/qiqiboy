@@ -24,6 +24,12 @@ _default: {
     'before':new Function(), //Function 幻灯切换前, before(newIndex, oldSlide)
     'after':new Function() //Function 幻灯切换后, after(newIndex, newSlide)
 }
+var slider=new TouchSlider();
+slider.pause();//暂停播放
+slider.paly();//开始播放
+slider.prev();//上一张
+slider.next();//下一张
+slider.stop();//停止播放（暂停并回到第一张）
 </pre>
 <br/><br/>
 <font color="red">一些例子</font>：
@@ -31,7 +37,7 @@ _default: {
 </h2>
 
 <h2>full-width 类型：容器宽度自适应，幻灯宽度不固定 <br/>
-调用方式：new TouchSlider('slider',{'auto':true, begin:1, speed:600, timeout:3000, direction:'down'})</h2>
+调用方式：new TouchSlider('slider',{'auto':true, begin:1, speed:600, timeout:3000, direction:'left', fixWidth:false})</h2>
 
 <div class='swipe' style='padding:10px;'>
   <ul id='slider'>
@@ -45,7 +51,7 @@ _default: {
 
 
 <h2>250px-width 类型：容器宽度250px，固定宽度幻灯，方向向下滚动 <br/>
-调用方式：new TouchSlider('slider2',{'auto':false, speed:600, timeout:3000, direction:'down', fixWidth:false})</h2>
+调用方式：new TouchSlider('slider2',{'auto':false, speed:600, timeout:3000, direction:'down', fixWidth:true})</h2>
 
 <div class='swipe' style='height:145px;width:250px'>
   <ul id='slider2'>
@@ -59,7 +65,7 @@ _default: {
 
 
 <h2>Full-width 类型：容器宽度自适应，幻灯宽度固定<br/>
-调用方式：new TouchSlider('slider',{'auto':true, speed:600, timeout:3000, direction:'left', fixWidth:true})</h2>
+调用方式：new TouchSlider('slider',{'auto':true, speed:600, timeout:3000, direction:'left', mouseWheel:true, fixWidth:true})</h2>
 
 <div class='swipe' style="height:123px;">
   <ul id='slider3'>
@@ -121,9 +127,9 @@ for(var i=0;i<as.length;i++){
 		}
 	})();
 }
-var t1=new TouchSlider('slider',{'auto':true, begin:1, speed:600, timeout:3000, direction:'left', mouseWheel:true, fixWidth:false});
+var t1=new TouchSlider('slider',{'auto':true, begin:1, speed:600, timeout:3000, direction:'left', fixWidth:false});
 var t2=new TouchSlider('slider2',{'auto':false, speed:600, timeout:3000, direction:'down', fixWidth:true});
-var t3=new TouchSlider('slider3',{'auto':true, speed:600, timeout:3000, direction:'left', fixWidth:true});
+var t3=new TouchSlider('slider3',{'auto':true, speed:600, timeout:3000, direction:'left', mouseWheel:true, fixWidth:true});
 var t4=new TouchSlider({id:'slider4','auto':true, speed:600, timeout:6000, direction:'right',before:function(index){
 		as[active].className='';
 		active=index;
