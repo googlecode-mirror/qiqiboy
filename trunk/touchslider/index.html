@@ -10,6 +10,7 @@
 <body>
 
 <h1>TouchSlider</h1>
+<div id="ts" style="overflow:auto;">
 <h2>默认参数说明
 <pre>
 _default: {
@@ -37,6 +38,7 @@ slider.stop();//停止播放（暂停并回到第一张）
 <font color="red">一些例子</font>：
 <br/>
 </h2>
+</div>
 
 <h2>full-width 类型：容器宽度自适应，幻灯宽度不固定，居中对齐（iphone版appStore上截图展现方式） <br/>
 调用方式：new TouchSlider('slider',{speed:600, timeout:3000, direction:'left', <font color="red">fixWidth:false</font>})</h2>
@@ -143,7 +145,6 @@ slider.stop();//停止播放（暂停并回到第一张）
 <br><br>
 <div id="copyright">Copyright 2012 <a href="http://www.qiqiboy.com">www.qiqiboy.com</a></div>
 
-
 <script type="text/javascript">
 console=window.console || {dir:new Function(),log:new Function()};
 var active=0,
@@ -166,8 +167,7 @@ var t4=new TouchSlider({id:'slider4', speed:600, timeout:6000, before:function(i
 		active=index;
 		as[active].className='active';
 	}});
-
+new TouchScroll({id:'ts',width:6});
 </script>
-
 </body> 
 </html> 
