@@ -29,7 +29,7 @@ _default: {
 
 var slider=new TouchSlider();
 slider.pause();//暂停播放
-slider.paly();//开始播放
+slider.play();//开始播放
 slider.prev();//上一张
 slider.next();//下一张
 slider.stop();//停止播放（暂停并回到第一张）
@@ -76,8 +76,8 @@ slider.stop();//停止播放（暂停并回到第一张）
 <button onclick="t11.prev();">上一张</button>
 <button onclick="t11.next();">下一张</button>
 
-<h2>250px-width 类型：容器宽度250px，固定宽度幻灯，方向向下滚动 <br/>
-调用方式：new TouchSlider('slider2',{'auto':false, begin:1, speed:600, timeout:3000, direction:'down'})</h2>
+<h2>250px-width 类型：容器宽度250px，固定宽度幻灯，方向向上滚动 <br/>
+调用方式：new TouchSlider('slider2',{'auto':false, begin:1, speed:600, timeout:3000, direction:'up'})</h2>
 
 <div class='swipe' style='height:145px;width:250px'>
   <ul id='slider2'>
@@ -160,7 +160,7 @@ for(var i=0;i<as.length;i++){
 }
 var t1=new TouchSlider('slider',{speed:600, timeout:3000, direction:'left', fixWidth:false});
 var t11=new TouchSlider('slider1',{speed:600, timeout:3000, direction:'left', align:'left', fixWidth:false});
-var t2=new TouchSlider('slider2',{'auto':false, begin:1, speed:600, timeout:3000, direction:'down'});
+var t2=new TouchSlider('slider2',{'auto':false, begin:1, speed:600, timeout:3000, direction:'up'});
 var t3=new TouchSlider('slider3',{speed:600, timeout:3000, mouseWheel:true});
 var t4=new TouchSlider({id:'slider4', speed:600, timeout:6000, before:function(index){
 		as[active].className='';
